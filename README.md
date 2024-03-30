@@ -6,7 +6,7 @@ You can resize pane, split pane in vertical and horizontal, and close pane.
 
 ```jsx
 import { useContext, useState } from 'react';
-import { Layout, PaneContext } from 'split-layout';
+import { Layout, PaneContext } from '@fooyun/split-layout';
 
 const Counter = () => {
   const [counter, setCounter] = useState(0);
