@@ -53,9 +53,9 @@ const SplitCounter = () => {
   return (
     <div>
       <div style={operateStyle}>
-        <span style={operateBtnStyle} onClick={splitVertical}>垂直分屏</span>
-        <span style={operateBtnStyle} onClick={splitHorizontal}>水平分屏</span>
-        {paneContext?.canClose && <span style={operateBtnStyle} onClick={removePane}>关闭分屏</span>}
+        <span style={operateBtnStyle} onClick={splitVertical}>vertical</span>
+        <span style={operateBtnStyle} onClick={splitHorizontal}>horizontal</span>
+        {paneContext?.canClose && <span style={operateBtnStyle} onClick={removePane}>close</span>}
       </div>
       <div>
         <Counter />

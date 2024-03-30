@@ -11,6 +11,7 @@
     "name": "fooyun",
     "url": "https://github.com/fooyun"
   },
+  "homepage": "https://github.com/fooyun/split-layout",
   "type": "module",
   "files": [
     "dist"
