@@ -1,6 +1,6 @@
 {
   "name": "@fooyun/split-layout",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "This component allows you to split your screen both vertically and horizontally, with infinite nesting. It also maintains the state of the already split sections.",
   "keywords": [
     "split",
