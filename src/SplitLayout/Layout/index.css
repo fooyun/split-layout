@@ -1,0 +1,4 @@
+.split-layout,
+.split-layout * {
+  box-sizing: border-box;
+}

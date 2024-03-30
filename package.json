@@ -1,0 +1,65 @@
+{
+  "name": "split-layout",
+  "version": "0.1.0",
+  "description": "This component allows you to split your screen both vertically and horizontally, with infinite nesting. It also maintains the state of the already split sections.",
+  "keywords": [
+    "split",
+    "layout",
+    "react"
+  ],
+  "author": {
+    "name": "fooyun",
+    "url": "https://github.com/fooyun"
+  },
+  "type": "module",
+  "files": [
+    "dist"
+  ],
+  "main": "./dist/split-layout.cjs",
+  "module": "./dist/split-layout.js",
+  "exports": {
+    ".": {
+      "import": {
+        "default": "./dist/split-layout.js",
+        "types": "./dist/index.d.ts"
+      },
+      "require": {
+        "default": "./dist/split-layout.cjs",
+        "types": "./dist/index.d.ts"
+      }
+    }
+  },
+  "unpkg": "./dist/split-layout.umd.cjs",
+  "types": "./dist/index.d.ts",
+  "scripts": {
+    "dev": "vite --config vite.config.dev.ts",
+    "build": "tsc && vite build",
+    "build:demo": "tsc && vite build --config vite.config.dev.ts",
+    "preview": "vite preview --config vite.config.dev.ts",
+    "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
+    "format": "prettier --write './**/*.{js,jsx,ts,tsx,json,css,less}'",
+    "prepublishOnly": "npm run build"
+  },
+  "devDependencies": {
+    "@types/node": "^20.11.25",
+    "@types/react": "^18.2.56",
+    "@types/react-dom": "^18.2.19",
+    "@typescript-eslint/eslint-plugin": "^7.0.2",
+    "@typescript-eslint/parser": "^7.0.2",
+    "@vitejs/plugin-react": "^4.2.1",
+    "eslint": "^8.56.0",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "eslint-plugin-react-refresh": "^0.4.5",
+    "prettier": "^3.2.5",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "typescript": "^5.2.2",
+    "vite": "^5.1.4",
+    "vite-plugin-dts": "^3.7.3"
+  },
+  "peerDependencies": {
+    "react": "^16.8.0 || ^17.0.0 || ^18.0.0",
+    "react-dom": "^16.8.0 || ^17.0.0 || ^18.0.0"
+  },
+  "license": "MIT"
+}

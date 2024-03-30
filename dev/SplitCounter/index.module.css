@@ -1,0 +1,10 @@
+.operate {
+  text-align: right;
+  margin-bottom: 20px;
+
+  > span {
+    margin-left: 10px;
+    color: #08f;
+    cursor: pointer;
+  }
+}
