@@ -21,9 +21,9 @@ function SplitCounter() {
   return (
     <div>
       <div className={style.operate}>
-        <span onClick={splitVertical}>垂直分屏</span>
-        <span onClick={splitHorizontal}>水平分屏</span>
-        {paneContext?.canClose && <span onClick={removePane}>关闭分屏</span>}
+        <span onClick={splitVertical}>vertical</span>
+        <span onClick={splitHorizontal}>horizontal</span>
+        {paneContext?.canClose && <span onClick={removePane}>close</span>}
       </div>
       <div>
         <Counter />
