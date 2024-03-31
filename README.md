@@ -4,6 +4,10 @@ This component allows you to split your screen both vertically and horizontally,
 
 You can resize pane, split pane in vertical and horizontal, and close pane.
 
+## demo online
+[demo](https://fooyun.github.io/split-layout/)
+
+## usage
 ```jsx
 import { useContext, useState } from 'react';
 import { Layout, PaneContext } from '@fooyun/split-layout';

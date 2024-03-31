@@ -4,6 +4,10 @@
 
 你可以调整分屏大小，垂直分屏/水平分屏/关闭分屏。
 
+## demo online
+[demo](https://fooyun.github.io/split-layout/)
+
+## usage
 ```jsx
 import { useContext, useState } from 'react';
 import { Layout, PaneContext } from '@fooyun/split-layout';
