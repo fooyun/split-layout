@@ -18,6 +18,19 @@ import {
 } from './unit';
 import './index.css';
 
+// container 的宽度/高度如果在 resize 时变成0，会导致计算 pane/resizer 的宽高时出现除 0 的问题，丢失原有的占比信息。
+// 所以内部设置一个最小值，保证计算不出错。但是不影响dom的展示，dom依然可以缩小到0。
+const MIN_CONTAINER_WIDTH = 10;
+const MIN_CONTAINER_HEIGHT = 10;
+
+const computeContainerWidth = (width: number) => {
+  return Math.max(MIN_CONTAINER_WIDTH, width);
+};
+
+const computeContainerHeight = (height: number) => {
+  return Math.max(MIN_CONTAINER_HEIGHT, height);
+};
+
 const getEventPosition = (event: MouseEvent, type: string) => {
   return type === VERTICAL ? event.clientX : event.clientY;
 };
@@ -618,8 +631,8 @@ const SplitLayout: React.FunctionComponent<SplitLayoutProps> = (props) => {
       return;
     }
     const { width, height } = ref.current.getBoundingClientRect();
-    setContainerWidth(width);
-    setContainerHeight(height);
+    setContainerWidth(computeContainerWidth(width));
+    setContainerHeight(computeContainerHeight(height));
   }, []);
 
   // 初始化
@@ -658,8 +671,11 @@ const SplitLayout: React.FunctionComponent<SplitLayoutProps> = (props) => {
       if (!ref.current) {
         return;
       }
-      const { width: newContainerWidth, height: newContainerHeight } =
-        ref.current.getBoundingClientRect();
+
+      const { width, height } = ref.current.getBoundingClientRect();
+      const newContainerWidth = computeContainerHeight(width);
+      const newContainerHeight = computeContainerHeight(height);
+
       if (newContainerWidth !== containerWidth || newContainerHeight !== containerHeight) {
         onWindowResize(newContainerWidth, newContainerHeight);
         setContainerWidth(newContainerWidth);
@@ -667,10 +683,18 @@ const SplitLayout: React.FunctionComponent<SplitLayoutProps> = (props) => {
       }
     };
 
-    window.addEventListener('resize', onResize);
+    const resizeObserver = new ResizeObserver(() => {
+      onResize();
+    });
+
+    if (ref.current) {
+      resizeObserver.observe(ref.current);
+    }
 
     return () => {
-      window.removeEventListener('resize', onResize);
+      if (ref.current) {
+        resizeObserver.unobserve(ref.current);
+      }
     };
   }, [containerWidth, containerHeight, units]);
 
