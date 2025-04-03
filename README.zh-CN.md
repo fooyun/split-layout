@@ -1,20 +1,20 @@
 # split-layout
 
-This component allows you to split your screen both vertically and horizontally, with infinite nesting. It also maintains the state of the already split sections.
+此组件允许您垂直和水平分割屏幕，并支持无限嵌套。同时，它还会维护已分割部分的状态。
 
-You can resize pane, split pane in vertical and horizontal, and close pane.
+你可以调整窗格大小、垂直或水平分割窗格，以及关闭窗格。
 
-[中文文档](./README.zh-CN.md)
+[English Documentation](./README.md)
 
-## demo online
-[demo](https://fooyun.github.io/split-layout/)
+## 在线演示
+[演示](https://fooyun.github.io/split-layout/)
 
-## install
+## 安装
 ```bash
 npm install @fooyun/split-layout
 ```
 
-## usage
+## 使用
 ```jsx
 import { useContext, useState } from 'react';
 import { Layout, PaneContext } from '@fooyun/split-layout';
@@ -24,12 +24,12 @@ const Counter = () => {
 
   return (
     <div>
-      <span>current is: {counter}</span>
+      <span>当前计数: {counter}</span>
       <span
         style={{ color: 'green', marginLeft: '20px', cursor: 'pointer' }}
         onClick={() => setCounter((c) => c + 1)}
       >
-        add
+        增加
       </span>
     </div>
   );
@@ -64,9 +64,9 @@ const SplitCounter = () => {
   return (
     <div>
       <div style={operateStyle}>
-        <span style={operateBtnStyle} onClick={splitVertical}>vertical</span>
-        <span style={operateBtnStyle} onClick={splitHorizontal}>horizontal</span>
-        {paneContext?.canClose && <span style={operateBtnStyle} onClick={removePane}>close</span>}
+        <span style={operateBtnStyle} onClick={splitVertical}>垂直分割</span>
+        <span style={operateBtnStyle} onClick={splitHorizontal}>水平分割</span>
+        {paneContext?.canClose && <span style={operateBtnStyle} onClick={removePane}>关闭</span>}
       </div>
       <div>
         <Counter />
