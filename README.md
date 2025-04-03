@@ -7,6 +7,11 @@ You can resize pane, split pane in vertical and horizontal, and close pane.
 ## demo online
 [demo](https://fooyun.github.io/split-layout/)
 
+## install
+```bash
+npm install @fooyun/split-layout
+```
+
 ## usage
 ```jsx
 import { useContext, useState } from 'react';
